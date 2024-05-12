@@ -3,6 +3,7 @@ package sta8_test
 import (
 	"context"
 	"errors"
+	"fmt"
 	"os"
 	"testing"
 	"time"
@@ -78,6 +79,7 @@ func TestStation8(t *testing.T) {
 				CreatedAt:   time.Now(),
 				UpdatedAt:   time.Now(),
 			}
+			fmt.Println("got:", got)
 			if diff := cmp.Diff(got, want, cmpopts.EquateApproxTime(time.Second), cmpopts.IgnoreFields(model.TODO{}, "ID")); diff != "" {
 				t.Error("期待していない値です\n", diff)
 				return
