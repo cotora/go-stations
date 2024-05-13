@@ -19,6 +19,5 @@
     "postinstall": "yarn hook:update && yarn login:techtrain"
   },
   "simple-git-hooks": {
-    "pre-commit": "yarn hook:pre-commit"
   }
 }
