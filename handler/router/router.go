@@ -16,5 +16,6 @@ func NewRouter(todoDB *sql.DB) *http.ServeMux {
 	//mux.Handle("/do-panic", handler.NewDoPanicHandler())
 	mux.Handle("/do-panic",middleware.Recovery(handler.NewDoPanicHandler()))
 	mux.Handle("/os-info",middleware.SetOSInfo(handler.NewOSInfoHandler()))
+	mux.Handle("/print-log",middleware.SetOSInfo(middleware.PrintLog(handler.NewOSInfoHandler())))
 	return mux
 }
