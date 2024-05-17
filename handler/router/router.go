@@ -18,5 +18,6 @@ func NewRouter(todoDB *sql.DB) *http.ServeMux {
 	mux.Handle("/os-info",middleware.SetOSInfo(handler.NewOSInfoHandler()))
 	mux.Handle("/print-log",middleware.SetOSInfo(middleware.PrintLog(handler.NewOSInfoHandler())))
 	mux.Handle("/healthz-auth",middleware.BasicAuth(handler.NewHealthzHandler()))
+	mux.Handle("/sleep",handler.SleepFive())
 	return mux
 }
